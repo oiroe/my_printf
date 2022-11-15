@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libftprintf.h"
 
 int	numlen(int num)
 {
@@ -44,7 +44,7 @@ int	d(int num)
 		d(num / 10);
 		num = num % 10;
 	}
-	if (num < 9)
+	if (num <= 9)
 		c(num + 48);
 	return (len);
 }
