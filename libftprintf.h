@@ -11,11 +11,11 @@
 /* ************************************************************************** */
 
 #ifndef LIBFTPRINTF_H
-#define LIBFTPRINTF_H
+# define LIBFTPRINTF_H
 
-#include <unistd.h>
+# include <unistd.h>
 
-int	c(int a)
+int	c(int a);
 int	s(char *str);
 int	u(unsigned int num);
 int	upperx(int n);
