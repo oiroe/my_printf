@@ -1,18 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   u.c                                                :+:      :+:    :+:   */
+/*   p.c                                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pboonpro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/15 18:22:50 by pboonpro          #+#    #+#             */
-/*   Updated: 2022/11/15 18:22:50 by pboonpro         ###   ########.fr       */
+/*   Created: 2022/11/17 23:51:00 by pboonpro          #+#    #+#             */
+/*   Updated: 2022/11/17 23:51:00 by pboonpro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+//#include "libftprintf.h"
+#include <stdio.h>
+#include <unistd.h>
 
-int	numlen(unsigned int num)
+int c(int a)
+{
+	write(1, &a, 1);
+	return (1);
+}
+
+int	numlen(unsigned long num)
 {
 	int	i;
 
@@ -21,36 +29,43 @@ int	numlen(unsigned int num)
 	i = 0;
 	while (num > 0)
 	{
-		num /= 10;
+		num /= 16;
 		i++;
 	}
 	return (i);
 }
 
-int	u(unsigned int num)
+int	p(void *ptr)
 {
 	int	len;
+	unsigned long *n;
 
-	len = numlen(num);
-	if (num > 9)
+	*n = (unsigned long)ptr;
+	len = numlen((int)*n);
+	if (*n > 15)
 	{
-		u(num / 10);
-		num = num % 10;
+		p((unsigned long)(*n / 16));
+		*n = *n % 16;
 	}
-	if (num <= 9)
-		c(num + 48);
+	if (*n <= 9)
+		c(*n + 48);
+	if (*n >= 10 && *n <= 15)
+	{
+		*n = *n % 10;
+		c(*n + 65);
+	}
 	return (len);
 }
 
-/*int	main()
+int	main()
 {
 	int	a;
-	int	b = 425654;
-	int	c;
+	int	b;
+	int *c;
 
-	a = u(b);
+	a = p(&c);
 	printf("\n%d\n", a);
-	c = printf("%i", b);
-	printf("\n%d\n", c);
+	b = printf("%p", c);
+	printf("\n%d\n",b);
 	return (0);
-}*/
+}

@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   u.c                                                :+:      :+:    :+:   */
+/*   upperx.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pboonpro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/15 18:22:50 by pboonpro          #+#    #+#             */
-/*   Updated: 2022/11/15 18:22:50 by pboonpro         ###   ########.fr       */
+/*   Created: 2022/11/17 19:09:11 by pboonpro          #+#    #+#             */
+/*   Updated: 2022/11/17 19:09:11 by pboonpro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-int	numlen(unsigned int num)
+int	numlen(int num)
 {
 	int	i;
 
@@ -21,36 +21,40 @@ int	numlen(unsigned int num)
 	i = 0;
 	while (num > 0)
 	{
-		num /= 10;
+		num /= 16;
 		i++;
 	}
 	return (i);
 }
 
-int	u(unsigned int num)
+int	upperx(int n)
 {
 	int	len;
 
-	len = numlen(num);
-	if (num > 9)
+	len = numlen(n);
+	if (n > 15)
 	{
-		u(num / 10);
-		num = num % 10;
+		upperx(n / 16);
+		n = n % 16;
 	}
-	if (num <= 9)
-		c(num + 48);
+	if (n <= 9)
+		c(n + 48);
+	if (n >= 10 && n <= 15)
+	{
+		n = n % 10;
+		c(n + 65);
+	}
 	return (len);
 }
 
 /*int	main()
 {
 	int	a;
-	int	b = 425654;
-	int	c;
+	int	b;
 
-	a = u(b);
+	a = upperx(16);
 	printf("\n%d\n", a);
-	c = printf("%i", b);
-	printf("\n%d\n", c);
+	b = printf("%X", 16);
+	printf("\n%d\n",b);
 	return (0);
 }*/
