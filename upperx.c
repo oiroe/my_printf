@@ -12,7 +12,7 @@
 
 #include "libftprintf.h"
 
-int	numlen(int num)
+int	upperlen(int num)
 {
 	int	i;
 
@@ -21,17 +21,17 @@ int	numlen(int num)
 	i = 0;
 	while (num > 0)
 	{
-		num /= 16;
 		i++;
+		num /= 16;
 	}
 	return (i);
 }
 
-int	upperx(int n)
+int	upperx(unsigned int n)
 {
 	int	len;
 
-	len = numlen(n);
+	len = upperlen(n);
 	if (n > 15)
 	{
 		upperx(n / 16);

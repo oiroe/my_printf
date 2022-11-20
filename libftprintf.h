@@ -14,12 +14,15 @@
 # define LIBFTPRINTF_H
 
 # include <unistd.h>
+# include <stdarg.h>
 
 int	c(int a);
 int	s(char *str);
 int	u(unsigned int num);
-int	upperx(int n);
-int	x(int n);
+int	upperx(unsigned int n);
+int	x(unsigned int n);
 int	d(int num);
+int	p(unsigned long long n);
+int	ft_printf(const char *str, ...);
 
 #endif

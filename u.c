@@ -12,7 +12,7 @@
 
 #include "libftprintf.h"
 
-int	numlen(unsigned int num)
+int	ulen(unsigned int num)
 {
 	int	i;
 
@@ -21,8 +21,8 @@ int	numlen(unsigned int num)
 	i = 0;
 	while (num > 0)
 	{
-		num /= 10;
 		i++;
+		num /= 10;
 	}
 	return (i);
 }
@@ -31,7 +31,7 @@ int	u(unsigned int num)
 {
 	int	len;
 
-	len = numlen(num);
+	len = ulen(num);
 	if (num > 9)
 	{
 		u(num / 10);

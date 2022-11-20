@@ -21,8 +21,8 @@ int	numlen(int num)
 	i = 0;
 	while (num > 0)
 	{
-		num /= 10;
 		i++;
+		num /= 10;
 	}
 	return (i);
 }
@@ -35,7 +35,7 @@ int	d(int num)
 	if (num < 0)
 	{
 		c('-');
-		num *= -1;
+		num = -num;
 		len = 1;
 	}
 	len += numlen(num);
