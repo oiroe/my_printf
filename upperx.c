@@ -12,7 +12,7 @@
 
 #include "libftprintf.h"
 
-int	upperlen(int num)
+int	upperlen(unsigned int num)
 {
 	int	i;
 

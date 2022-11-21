@@ -27,11 +27,8 @@ int	plen(unsigned long long num)
 	return (i);
 }
 
-int	putp(unsigned long long n)
+void	putp(unsigned long long n)
 {
-	int	len;
-
-	len = plen(n);
 	if (n > 15)
 	{
 		p(n / 16);
@@ -42,9 +39,8 @@ int	putp(unsigned long long n)
 	if (n >= 10 && n <= 15)
 	{
 		n = n % 10;
-		c(n + 65);
+		c(n + 97);
 	}
-	return (len);
 }
 
 int	p(unsigned long long n)
@@ -53,7 +49,8 @@ int	p(unsigned long long n)
 
 	len = 0;
 	len += s("0x");
-	len += putp(n);
+	len += plen(n);
+	putp(n);
 	return (len);
 }
 

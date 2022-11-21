@@ -32,11 +32,15 @@ int	d(int num)
 	int	len;
 
 	len = 0;
+	if (num == -2147483648)
+	{
+		len += s("-2");
+		num = 147483648;
+	}
 	if (num < 0)
 	{
-		c('-');
+		len += c('-');
 		num = -num;
-		len = 1;
 	}
 	len += numlen(num);
 	if (num > 9)

@@ -12,7 +12,7 @@
 
 #include "libftprintf.h"
 
-int	xlen(int num)
+int	xlen(unsigned int num)
 {
 	int	i;
 

@@ -17,7 +17,7 @@ int	s(char *str)
 	int	i;
 
 	if (!str)
-		return (s("(NULL)"));
+		return (s("(null)"));
 	i = 0;
 	while (str[i])
 	{
