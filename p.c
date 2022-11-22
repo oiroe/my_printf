@@ -31,7 +31,7 @@ void	putp(unsigned long long n)
 {
 	if (n > 15)
 	{
-		p(n / 16);
+		putp(n / 16);
 		n = n % 16;
 	}
 	if (n <= 9)
